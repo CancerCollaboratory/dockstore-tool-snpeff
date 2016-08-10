@@ -9,25 +9,30 @@ dct:creator:
   foaf:name: Andy Yang
   foaf:mbox: "mailto:ayang@oicr.on.ca"
 
+cwlVersion: draft-3
+
 requirements:
   - class: DockerRequirement
     dockerPull: "quay.io/cancercollaboratory/dockstore-tool-snpeff"
-  - { import: node-engine.cwl }
 
 inputs:
   - id: "#in"
     type: File
     description: "Predicted variants (SNPs, insertions, deletions and MNPs). The input file is usually obtained as a result of a sequencing experiment, and it is usually in variant call format (VCF)."
     inputBinding:
+      position: 2 
+    secondaryFiles:
+      - ".genome"
+
+  - id: "#genome"
+    type: string
+    inputBinding:
       position: 1
 
 outputs:
-  - id: "#out"
+  - id: output
     type: File
-    description: "Output path(?) for 3 output files: the HTML file containing summary statistics about the variants and their annotations; an annotated VCF file; and a text file summarizing the number of variant types per gene."
     outputBinding:
-      glob:
-        engine: cwl:JsonPointer
-        script: /job/output1
+      glob: output.txt
 
 baseCommand: [""]

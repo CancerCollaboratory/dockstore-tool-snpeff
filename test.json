@@ -1,0 +1,7 @@
+{
+  "in": {
+    "path": "ALL.chrX.BI_Beagle.20100804.sites.vcf",
+    "class": "File"
+  },
+  "genome": "hg19",
+}
