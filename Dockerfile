@@ -14,6 +14,7 @@ COPY wrapper.sh /opt/snpeff/
 RUN mkdir /data
 WORKDIR /data
 VOLUME ["/data"]
+VOLUME ["/opt/snpeff/data"]
 
 ENTRYPOINT ["sh", "/opt/snpeff/wrapper.sh"]
 
