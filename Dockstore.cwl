@@ -31,7 +31,9 @@ outputs:
     outputBinding:
       glob: output.txt
 
-baseCommand: ['']
+stdout: output.txt
+
+baseCommand: []
 doc: |
   Annotates and predicts the effects of variants on genes (such as amino acid changes).
 
