@@ -29,6 +29,8 @@ inputs:
     inputBinding:
       position: 1
 
+stdout: output.txt
+
 outputs:
   - id: output
     type: File
