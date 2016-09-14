@@ -9,7 +9,7 @@ cwlVersion: v1.0
 
 requirements:
 - class: DockerRequirement
-  dockerPull: quay.io/cancercollaboratory/dockstore-tool-snpeff
+  dockerPull: quay.io/cancercollaboratory/dockstore-tool-snpeff:1.0
 inputs:
   genome:
     type: string
