@@ -7,5 +7,7 @@ RUN wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
 RUN unzip snpEff_latest_core.zip
 RUN rm snpEff_latest_core.zip
 
+RUN cp snpEff/snpEff.jar .
+
 COPY wrapper.sh /opt/snpeff/
 ENTRYPOINT ["sh", "/opt/snpeff/wrapper.sh"]

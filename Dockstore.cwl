@@ -2,39 +2,38 @@
 
 class: CommandLineTool
 
-description: |
-  Annotates and predicts the effects of variants on genes (such as amino acid changes).
-
 dct:creator:
   foaf:name: Andy Yang
-  foaf:mbox: "mailto:ayang@oicr.on.ca"
-
-cwlVersion: draft-3
+  foaf:mbox: mailto:ayang@oicr.on.ca
+cwlVersion: v1.0
 
 requirements:
-  - class: DockerRequirement
-    dockerPull: "quay.io/cancercollaboratory/dockstore-tool-snpeff"
-
+- class: DockerRequirement
+  dockerPull: quay.io/cancercollaboratory/dockstore-tool-snpeff:1.0
 inputs:
-  - id: "#in"
-    type: File
-    description: "Predicted variants (SNPs, insertions, deletions and MNPs). The input file is usually obtained as a result of a sequencing experiment, and it is usually in variant call format (VCF)."
-    inputBinding:
-      position: 2 
-    secondaryFiles:
-      - ".genome"
-
-  - id: "#genome"
+  genome:
     type: string
     inputBinding:
       position: 1
 
-stdout: output.txt
-
+  in:
+    type: File
+    inputBinding:
+      position: 2
+    secondaryFiles:
+    - .genome
+    doc: Predicted variants (SNPs, insertions, deletions and MNPs). The input file
+      is usually obtained as a result of a sequencing experiment, and it is usually
+      in variant call format (VCF).
 outputs:
-  - id: output
+  output:
     type: File
     outputBinding:
       glob: output.txt
 
-baseCommand: [""]
+stdout: output.txt
+
+baseCommand: []
+doc: |
+  Annotates and predicts the effects of variants on genes (such as amino acid changes).
+
